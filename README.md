@@ -1,5 +1,5 @@
-# Shopee_Analysis
-This is a project that cleans data in SQL and uses clean data in Tableau to gain insights at the product level
+# Shopee Analysis
+This is a project that cleans data in SQL and uses clean data in Tableau to gain insights at the product level.
 
 Dataset is from a retail store in Malaysia called Shopee. The purpose of this dashboard was to conduct product analysis throughout each category and understanding the categories that generate the most revenue and which subcategories contribute most to the revenue. The dashboard is interactive and can be found here: https://public.tableau.com/shared/J8THNDKFQ?:display_count=n&:origin=viz_share_link
 
