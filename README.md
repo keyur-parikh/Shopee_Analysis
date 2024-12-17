@@ -1,25 +1,63 @@
-# Shopee Analysis
-This is a project that cleans data in SQL and uses clean data in Tableau to gain insights at the product level.
+# Shopee Product Analysis
 
-Dataset is from a retail store in Malaysia called Shopee. The purpose of this dashboard was to conduct product analysis throughout each category and understanding the categories that generate the most revenue and which subcategories contribute most to the revenue. The dashboard is interactive and can be found here: https://public.tableau.com/shared/J8THNDKFQ?:display_count=n&:origin=viz_share_link
+## Project Overview  
+This project focuses on cleaning and transforming raw retail data using **SQL** and leveraging the cleaned dataset in **Tableau** to conduct an in-depth product-level analysis. The goal was to identify categories and subcategories contributing the most to revenue.
 
-The SQL code demonstrates data cleaning, as the initial dataset consisted of unclean and non-standardized data.
+**Dataset:**  
+The dataset comes from **Shopee**, a retail store in Malaysia. The interactive Tableau dashboard showcasing the final insights can be found here:  
+[Interactive Dashboard](https://public.tableau.com/shared/J8THNDKFQ?:display_count=n&:origin=viz_share_link)
 
-In SQL, I first created another table as a staging table to ensure that none of the original data was changed or altered. 
+---
 
-After some initial inspecting and ensuring that the table contained no duplicates, I decided to only focus on only subsets of columns that I was interested in for further analysis.
+## Key Steps in SQL Data Cleaning
 
-My next step was to convert the columns into proper datatypes:
-- The Deliver Date column was in string format, so I had to first alter the table to create a new column that accepts date time objects, and then converted the string object and added it into the new column that I created
-- There were also some strings that should have been numeric datatypes, I first had to add some logic to ensure that any number that had k to be multiplied by 1000 as to ensure data integrity.
+### 1. Creating a Staging Table
+- Created a **staging table** to ensure the original data wasn't altered. 
 
-Then I had to convert some strings into NULL Values:
-- There were some strings that were just empty strings rather than being considered NULL values, so I had to write logic to fix those.
-- There were also some values that had the word 'N/A', I had to write logic to convert these into NULL Values
+### 2. Initial Inspection and Deduplication
+- Verified the dataset for duplicates using unique identifiers.  
+- Focused on a subset of relevant columns for analysis.
 
-Then I had to extract new columns from category_detail, The main category and the sub categories were all in one string. I had to write some string manipulation logic to extract these information and then add new columns in the table to store these
+### 3. Converting Data Types
+- **Datetime Conversion:**
+  - The `Delivery Date` column was stored as a string.
+  - Steps: Added a new column for datetime values, converted the string format, and removed the original column.
+- **String-to-Numeric Conversion:**
+  - Standardized columns with values like `2.5k` by removing the 'k' and multiplying by 1000.
+  - Converted empty strings and 'N/A' placeholders into `NULL` values for data integrity.
 
-I also calculated new fields from existing field, for example, I multiplied Product_Sales * Amount_Sold to get the Revenue generated from that product. 
+### 4. String Manipulation for Feature Extraction
+- Extracted **Main Category**, **Subcategory 1**, and **Subcategory 2** from the `category_detail` column.  
+- Created separate columns to store this information for improved granularity.
 
-Then finally do some additional data validation to ensure there were no errors and all the columns made logical sense. Removed rows that didn't have sufficient data for analysis. And assume that if there was no actual price, that original price should be used. 
+### 5. Creating New Fields
+- Derived a **Revenue** column by multiplying `Product_Sales` with `Amount_Sold`.
 
+### 6. Data Validation and Cleaning
+- Removed rows with:
+  - Missing or invalid values (e.g., `NULL` prices, zero values).  
+- Assumed `Original Price` as a fallback where `Actual Price` was missing.  
+- Ensured logical consistency across all columns.
+
+---
+
+## Outcome and Insights  
+The cleaned and transformed dataset was exported into Tableau, where an interactive dashboard was created to:  
+- Visualize revenue distribution across **categories** and **subcategories**.  
+- Enable dynamic exploration of product-level performance.
+
+---
+
+## Skills Highlighted  
+- **SQL Data Cleaning & Transformation**:  
+  - Staging tables, data type conversion, feature extraction, and logical fixes.  
+- **Data Validation**:  
+  - Ensured clean, standardized, and reliable data for analysis.  
+- **Tableau Dashboarding**:  
+  - Presented actionable insights through an interactive and intuitive visualization.
+
+---
+
+## Key Takeaway  
+This project demonstrates the ability to clean messy datasets, extract meaningful insights, and deliver an analysis-ready dataset for visualization.  
+It highlights strong **problem-solving skills**, **attention to detail**, and **technical proficiency** in SQL and Tableau.
